@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.beraybentesen.navigation_view">
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23" />
+	<application android:allowBackup="true" android:icon="@drawable/icon72_72" android:label="@string/app_name" android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></application>
+	<uses-permission android:name="android.permission.INTERNET" />
+</manifest>

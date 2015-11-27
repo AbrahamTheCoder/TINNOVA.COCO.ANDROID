@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{41CAFC70-9D95-4C40-AF7A-28EF3DC59382}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Navigation_View</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AssemblyName>Navigation_View</AssemblyName>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>Full</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.23.0.1.3\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.0.1.3\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Design">
+      <HintPath>..\packages\Xamarin.Android.Support.Design.23.0.1.3\lib\MonoAndroid403\Xamarin.Android.Support.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.CardView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.0.1.3\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.0.1.3\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+    </Reference>
+    <Reference Include="UrlImageViewHelper">
+      <HintPath>..\Components\urlimageviewhelper-1.0.4.1\lib\android\UrlImageViewHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashScreen.cs" />
+    <Compile Include="NewsFragment.cs" />
+    <Compile Include="TipsFragment.cs" />
+    <Compile Include="TicketFragment.cs" />
+    <Compile Include="Clases\Publicaciones.cs" />
+    <Compile Include="adapter\adapter_listview.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="NewsFragmentDetail.cs" />
+    <Compile Include="Web References\cocoservices.tinnova.mx\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Ticket.cs" />
+    <Compile Include="TicketJuridicoFragment.cs" />
+    <Compile Include="adapter\Seguimiento_Adapter.cs" />
+    <Compile Include="Clases\TicketDetail.cs" />
+    <Compile Include="SeguimientoFragment.cs" />
+    <Compile Include="NewsDetailActivity.cs" />
+    <Compile Include="SeguimientoDetailActivity.cs" />
+    <Compile Include="adapter\SeguimientoDetail_Adapter.cs" />
+    <Compile Include="Clases\MyTextView.cs" />
+    <Compile Include="Clases\MyEditText.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="packages.config" />
+    <None Include="Web References\cocoservices.tinnova.mx\cocoservice.disco" />
+    <None Include="Web References\cocoservices.tinnova.mx\cocoservice.wsdl" />
+    <None Include="Web References\cocoservices.tinnova.mx\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\values-v21\style.xml" />
+    <AndroidResource Include="Resources\menu\navigationview_menu.xml" />
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\layout\headerlayout.axml" />
+    <AndroidResource Include="Resources\drawable\COCOLogo_copia_copia.png" />
+    <AndroidResource Include="Resources\drawable\broadcast.png" />
+    <AndroidResource Include="Resources\drawable\bulb.png" />
+    <AndroidResource Include="Resources\drawable\news.png" />
+    <AndroidResource Include="Resources\drawable\selectors.xml" />
+    <AndroidResource Include="Resources\drawable\settings2.png" />
+    <AndroidResource Include="Resources\drawable\ticket.png" />
+    <AndroidResource Include="Resources\layout\layout_configuracion.axml" />
+    <AndroidResource Include="Resources\layout\layout_tickets.axml" />
+    <AndroidResource Include="Resources\layout\layout_tips.axml" />
+    <AndroidResource Include="Resources\layout\layout_news.axml" />
+    <AndroidResource Include="Resources\drawable\material.jpg" />
+    <AndroidResource Include="Resources\drawable\COCOico57x57.png" />
+    <AndroidResource Include="Resources\drawable\COCOico72x72.png" />
+    <AndroidResource Include="Resources\drawable\COCOico76x76.png" />
+    <AndroidResource Include="Resources\drawable\COCOico114x114.png" />
+    <AndroidResource Include="Resources\drawable\COCOico120x120.png" />
+    <AndroidResource Include="Resources\drawable\COCOico144x144.png" />
+    <AndroidResource Include="Resources\drawable\COCOico152x152.png" />
+    <AndroidResource Include="Resources\layout\layout_group.axml" />
+    <AndroidResource Include="Resources\layout\layout_item.axml" />
+    <AndroidResource Include="Resources\values-v19\style.xml" />
+    <AndroidResource Include="Resources\drawable\Error128.png" />
+    <AndroidResource Include="Resources\layout\layout_ticketjuridico.axml" />
+    <AndroidResource Include="Resources\drawable\library.png" />
+    <AndroidResource Include="Resources\layout\layout_seguimiento.axml" />
+    <AndroidResource Include="Resources\layout\layout_seguimientoGroup.axml" />
+    <AndroidResource Include="Resources\layout\Test.axml" />
+    <AndroidResource Include="Resources\layout\layout_itemSeguimiento.axml" />
+    <AndroidResource Include="Resources\layout\layout_item_item.axml" />
+    <AndroidResource Include="Resources\layout\layout_item2.axml" />
+    <AndroidResource Include="Resources\layout\layout_row_detalleTicket.axml" />
+    <AndroidResource Include="Resources\layout\layout_group_ticketDetail.axml" />
+    <AndroidResource Include="Resources\layout\layout_detalle.axml" />
+    <AndroidResource Include="Resources\drawable\borderLayout.xml" />
+    <AndroidResource Include="Resources\drawable\chatYo.png" />
+    <AndroidResource Include="Resources\drawable\chat911.png" />
+    <AndroidResource Include="Resources\drawable\Launch640x1136.png" />
+    <AndroidResource Include="Resources\drawable\Icon72_72.png" />
+    <AndroidResource Include="Resources\drawable\Image180_180.png" />
+    <AndroidResource Include="Resources\values\Attrs.xml" />
+    <AndroidResource Include="Resources\drawable\yellowSeguimiento.png" />
+    <AndroidResource Include="Resources\drawable\RedAbierta.png" />
+    <AndroidResource Include="Resources\drawable\greencerrado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\values-v21\" />
+    <Folder Include="Resources\menu\" />
+    <Folder Include="Clases\" />
+    <Folder Include="adapter\" />
+    <Folder Include="Resources\values-v19\" />
+    <Folder Include="Assets\Fonts\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ItemGroup>
+    <XamarinComponentReference Include="urlimageviewhelper">
+      <Version>1.0.4.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://cocoservices.tinnova.mx/cocoservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\cocoservices.tinnova.mx</RelPath>
+      <UpdateFromURL>http://cocoservices.tinnova.mx/cocoservice.asmx</UpdateFromURL>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Fonts\HelveticaNeue-ThinExt.otf" />
+    <AndroidAsset Include="Assets\Fonts\HelveticaNeue-ThinCond.otf" />
+    <AndroidAsset Include="Assets\Fonts\HelveticaNeue-Thin.otf" />
+  </ItemGroup>
+</Project>

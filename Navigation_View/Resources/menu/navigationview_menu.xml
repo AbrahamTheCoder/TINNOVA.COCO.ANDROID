@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:checkableBehavior="single">
+   <item
+      android:id="@+id/nav_news"
+      android:icon="@drawable/news"
+      android:title="Inicio" />
+   <item
+      android:id="@+id/nav_monedero"
+      android:icon="@drawable/bulb"
+      android:title="Monedero" />
+    <item
+      android:id="@+id/nav_ticket"
+      android:icon="@drawable/ticket"
+      android:title="Quejas y Denuncias" />
+  <item
+      android:id="@+id/nav_ticket_juridico"
+      android:icon="@drawable/library"
+      android:title="Apoyo Juridico" />
+  <item
+  	  android:id="@+id/nav_seguimiento"
+  	  android:icon="@drawable/broadcast"
+  	  android:title="Seguimiento" />
+  </group>
+<!--  <item android:title="Otras opciones">
+    <menu>
+      <item   
+        android:id="@+id/exititem"
+        android:icon="@drawable/Icon"
+        android:title="Salir" />
+     </menu>
+  </item>-->
+</menu>

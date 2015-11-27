@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginRight="0dp"
+    android:layout_marginLeft="0dp"
+    card_view:cardElevation="5dp"
+    card_view:cardCornerRadius="0dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayoutBiography">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/ToolBarBoletin"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:elevation="2dp"
+            card_view:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:minHeight="?attr/actionBarSize"
+            android:background="#FF6600" />
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="4dp">
+            <Navigation_View.MyTextView
+                android:id="@+id/txtTituloDetalle"
+                android:text="Titulo"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:customFont="Fonts/HelveticaNeue-ThinCond.otf"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                android:paddingLeft="5dp" />
+            <ImageView
+                android:id="@+id/img_portadaDetalle"
+                android:layout_below="@id/txtTituloDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="false"
+                android:padding="5dp"
+                android:src="@android:color/darker_gray" />
+            <Navigation_View.MyTextView
+                android:id="@+id/txtSubtituloDetalle"
+                android:layout_below="@id/img_portadaDetalle"
+                android:text="Subtitulo"
+                card_view:customFont="Fonts/HelveticaNeue-ThinCond.otf"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingLeft="5dp" />
+            <Navigation_View.MyTextView
+                android:id="@+id/txtFechaContenidoDetalle"
+                android:layout_below="@id/txtSubtituloDetalle"
+                android:text="Fecha"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                card_view:customFont="Fonts/HelveticaNeue-ThinCond.otf"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:paddingTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayoutBiography">
+            <Navigation_View.MyTextView
+                android:id="@+id/txtContenidoDetalle"
+                android:layout_toRightOf="@id/img_portadaDetalle"
+                android:text="Biography"
+                android:gravity="left"
+                android:scrollbars="vertical"
+                android:textSize="12dp"
+                android:textAlignment="gravity"
+                card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
