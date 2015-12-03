@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.beraybentesen.navigation_view">
+  <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23" />
+  <permission android:name="com.beraybentesen.navigation_view.permission.C2D_MESSAGE" />
+  <uses-permission android:name="com.beraybentesen.navigation_view.permission.C2D_MESSAGE" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+  <application android:allowBackup="true" android:icon="@drawable/icon72_72" android:label="@string/app_name" android:theme="@style/Theme.AppCompat.Light.DarkActionBar" android:name="mono.android.app.Application">
+    <activity android:label="Conciencia del Consumidor" android:noHistory="true" android:theme="@style/Theme.Splash" android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.SplashScreen">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:label="Conciencia Consumidor" android:screenOrientation="portrait" android:theme="@style/MyTheme" android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.MainActivity" />
+    <activity android:label="Boletín" android:screenOrientation="portrait" android:theme="@style/MyTheme" android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.NewsDetailActivity" />
+    <activity android:label="Seguimiento" android:screenOrientation="portrait" android:theme="@style/MyTheme" android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.SeguimientoDetailActivity" />
+    <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.MyBroadcastReceiver">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <category android:name="com.beraybentesen.navigation_view" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+        <category android:name="com.beraybentesen.navigation_view" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.google.android.gcm.intent.RETRY" />
+        <category android:name="com.beraybentesen.navigation_view" />
+      </intent-filter>
+    </receiver>
+    <service android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.PushHandlerService" />
+    <activity android:label="Registro" android:screenOrientation="portrait" android:theme="@style/MyTheme" android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.RegisterActivity" />
+    <activity android:label="Web Authenticator" android:name="md550f8a10a740eb4fb6376baab8337ce22.FormAuthenticatorActivity" />
+    <activity android:label="Web Authenticator" android:name="md550f8a10a740eb4fb6376baab8337ce22.WebAuthenticatorActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.beraybentesen.navigation_view.mono.MonoRuntimeProvider.__mono_init__" />
+  </application>
+</manifest>

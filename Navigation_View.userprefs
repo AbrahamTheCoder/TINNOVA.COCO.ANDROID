@@ -1,13 +1,28 @@
 ﻿<Properties StartupItem="Navigation_View\Navigation_View.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.03884bde216b6c7d" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Navigation_View\Resources\menu\navigationview_menu.xml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.03884bde216b6c7d" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Navigation_View\adapter\Seguimiento_Adapter.cs" Line="69" Column="31" />
-      <File FileName="Navigation_View\MainActivity.cs" Line="1" Column="1" />
-      <File FileName="Navigation_View\NewsDetailActivity.cs" Line="1" Column="1" />
-      <File FileName="Navigation_View\SeguimientoDetailActivity.cs" Line="1" Column="1" />
-      <File FileName="Navigation_View\Resources\menu\navigationview_menu.xml" Line="20" Column="8" />
+      <File FileName="Navigation_View\MainActivity.cs" Line="22" Column="33" />
+      <File FileName="Navigation_View\NewsDetailActivity.cs" Line="32" Column="54" />
+      <File FileName="Navigation_View\SeguimientoDetailActivity.cs" Line="27" Column="63" />
+      <File FileName="Navigation_View\TipsFragment.cs" Line="94" Column="7" />
+      <File FileName="Navigation_View\TicketJuridicoFragment.cs" Line="37" Column="1" />
+      <File FileName="Navigation_View\adapter\Seguimiento_Adapter.cs" Line="98" Column="5" />
+      <File FileName="Navigation_View\SeguimientoFragment.cs" Line="79" Column="40" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Navigation_View" expanded="True">
+            <Node name="Navigation_View" expanded="True" selected="True">
+              <Node name="Resources" expanded="True">
+                <Node name="layout" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
@@ -18,6 +33,8 @@
       <Breakpoint file="C:\Users\aramirez\Desktop\Navigation_ViewBuenoV8\Navigation_View\adapter\Seguimiento_Adapter.cs" line="69" column="10" />
       <Breakpoint file="C:\Users\Abraham-PC\Desktop\Navigation_ViewBuenoV9\Navigation_View\SeguimientoDetailActivity.cs" line="23" column="7" />
       <Breakpoint file="C:\Users\aramirez\Desktop\Navigation_ViewBuenoV10\Navigation_View\SeguimientoDetailActivity.cs" line="42" column="5" />
+      <Breakpoint file="C:\PrivateSorceCode\TInnova.COCO.Android\Navigation_View\TipsFragment.cs" line="45" column="5" />
+      <Breakpoint file="C:\Users\aramirez\Desktop\TInnova.COCO.AndroidV4\Navigation_View\TicketJuridicoFragment.cs" line="72" column="7" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

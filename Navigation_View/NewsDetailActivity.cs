@@ -13,10 +13,11 @@ using Android.Widget;
 using Android.Text.Method;
 using Android.Support.V7.App;
 using Android.Support.V4.Widget;
+using Android.Content.PM;
 
 namespace Navigation_View
 {
-	[Activity (Label = "Boletín", Theme="@style/MyTheme")]			
+	[Activity (Label = "Boletín", Theme="@style/MyTheme", ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class NewsDetailActivity : AppCompatActivity
 	{
 		protected override void OnCreate (Bundle savedInstanceState)

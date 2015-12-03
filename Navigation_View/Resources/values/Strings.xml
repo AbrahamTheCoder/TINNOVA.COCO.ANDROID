@@ -6,6 +6,7 @@
 	<string name="QuejasDenuncias">Quejas y Denuncias</string>
 	<string name="Apoyo_Juridico">Apoyo Juridico</string>
 	<string name="Seguimiento">Seguimiento</string>
+	<string name="Registro">Registro de Usuario</string>
 
 
 	<style name="Theme.Splash" parent="android:Theme">

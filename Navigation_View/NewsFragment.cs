@@ -13,7 +13,7 @@ using Android.Hardware.Camera2;
 using Android.Media.Midi;
 using Android.Support.V7.Widget;
 using SupportFragment = Android.Support.V4.App.Fragment;
-using Navigation_View.cocoservices.tinnova.mx;
+using Navigation_View.services_911consumidor_com;
 
 namespace Navigation_View
 {
@@ -56,9 +56,15 @@ namespace Navigation_View
 
 
 			mRecyclerView = view.FindViewById<RecyclerView> (Resource.Id.RecyclerViewer);
+			//Pruebas
 
-			cocoservices.tinnova.mx.COCOService cliente = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
-			Navigation_View.cocoservices.tinnova.mx.PublicationDTO[] mPublicacion = new Navigation_View.cocoservices.tinnova.mx.PublicationDTO[5];
+			//cocoservices.tinnova.mx.COCOService cliente = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
+			//Navigation_View.cocoservices.tinnova.mx.PublicationDTO[] mPublicacion = new Navigation_View.cocoservices.tinnova.mx.PublicationDTO[5];
+
+			//Produccion
+
+			services_911consumidor_com.COCOService cliente = new Navigation_View.services_911consumidor_com.COCOService();
+			Navigation_View.services_911consumidor_com.PublicationDTO[] mPublicacion = new Navigation_View.services_911consumidor_com.PublicationDTO[5];
 
 			mPublicacion = cliente.GetActivePublications (string_key);
 			mPublicaciones = new List<Publicaciones> ();

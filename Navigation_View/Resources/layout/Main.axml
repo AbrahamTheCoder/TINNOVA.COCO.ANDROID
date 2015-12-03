@@ -17,14 +17,16 @@
             android:elevation="2dp"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:minHeight="?attr/actionBarSize"
+            android:clickable="true"
+            android:onClick="ReturnMenu"
             android:background="#FF6600">
-            <ImageView
+        <!--            <ImageView
                 android:id="@+id/img_Inicio"
                 android:background="@android:drawable/ic_dialog_alert"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:paddingLeft="20dp"
-                android:clickable="true" />
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingRight="20dp"
+                android:clickable="true" />-->
         </android.support.v7.widget.Toolbar>
         <FrameLayout
             android:id="@+id/layout_content"

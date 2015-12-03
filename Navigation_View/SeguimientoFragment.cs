@@ -13,7 +13,8 @@ using Android.Views;
 using Android.Widget;
 using SupportFragment = Android.Support.V4.App.Fragment;
 using Android.Support.V7.Widget;
-using Navigation_View.cocoservices.tinnova.mx;
+using Navigation_View.services_911consumidor_com;
+using Xamarin.Auth;
 
 namespace Navigation_View
 {
@@ -42,7 +43,7 @@ namespace Navigation_View
 		public override Android.Views.View OnCreateView (Android.Views.LayoutInflater inflater, Android.Views.ViewGroup container, Bundle savedInstanceState)
 		{
 			var ignored = base.OnCreateView (inflater, container, savedInstanceState);
-
+			string Email = string.Empty;
 			var view = (ViewGroup)inflater.Inflate (Resource.Layout.layout_seguimiento, null);
 			string string_key = "41f579fc-1445-4065-ab10-c06d50e724d3";
 
@@ -55,12 +56,22 @@ namespace Navigation_View
 
 			mRecyclerView = view.FindViewById<RecyclerView> (Resource.Id.RecyclerViewerSeguimiento);
 
-			cocoservices.tinnova.mx.COCOService cliente = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
-			Navigation_View.cocoservices.tinnova.mx.TicketDTO[] TicketDTOList = new Navigation_View.cocoservices.tinnova.mx.TicketDTO[50];
+			//Pruebas
+			//cocoservices.tinnova.mx.COCOService cliente = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
+			//Navigation_View.cocoservices.tinnova.mx.TicketDTO[] TicketDTOList = new Navigation_View.cocoservices.tinnova.mx.TicketDTO[50];
+
+			//Produccion
+			services_911consumidor_com.COCOService cliente = new Navigation_View.services_911consumidor_com.COCOService();
+			Navigation_View.services_911consumidor_com.TicketDTO[] TicketDTOList = new Navigation_View.services_911consumidor_com.TicketDTO[50];
 			mTickets = new List<Ticket> ();
 			mTicketsDetails = new List<TicketDetail> ();
 
-			TicketDTOList = cliente.GetTicketsByUser ("cnkmor@gmail.com", string_key);
+			var accounts = AccountStore.Create (view.Context).FindAccountsForService ("consumidor");
+			foreach (var account in accounts) {
+				Email = account.Properties ["Email"];
+			}
+
+			TicketDTOList = cliente.GetTicketsByUser (Email, string_key);
 
 			foreach (TicketDTO value in TicketDTOList) {
 				mTickets.Add (new Ticket {

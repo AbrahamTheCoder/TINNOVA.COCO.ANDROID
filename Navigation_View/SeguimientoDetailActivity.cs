@@ -14,10 +14,11 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Java.Util.Zip;
 using System.Security.Cryptography;
+using Android.Content.PM;
 
 namespace Navigation_View
 {
-	[Activity (Label = "Seguimiento", Theme="@style/MyTheme")]			
+	[Activity (Label = "Seguimiento", Theme="@style/MyTheme", ScreenOrientation = ScreenOrientation.Portrait)]			
 	public class SeguimientoDetailActivity : AppCompatActivity
 	{
 
@@ -29,8 +30,9 @@ namespace Navigation_View
 			Bundle bundle = Intent.Extras;
 
 			var TicketListDetails = Seguimiento_Adapter.DetallesTicket;
-			var TicketID = Intent.GetStringExtra ("TicketID");
+			var TicketID = Convert.ToInt32 (Intent.GetStringExtra ("TicketID").ToString ());
 
+			List<TicketDetail> ListResults = TicketListDetails.FindAll (x => x.TicketID == TicketID);
 
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.layout_detalle);
@@ -43,7 +45,7 @@ namespace Navigation_View
 
 			var listView = FindViewById<ListView> (Resource.Id.ListDetalle);
 
-			listView.Adapter = new SeguimientoDetail_Adapter (TicketListDetails, this);
+			listView.Adapter = new SeguimientoDetail_Adapter (ListResults, this);
 
 			var btnEnviar = FindViewById<Button> (Resource.Id.btnEnviarComentario);
 			var txtComentario = FindViewById<EditText> (Resource.Id.txtNewComment);
@@ -51,20 +53,21 @@ namespace Navigation_View
 
 			btnEnviar.Click += (object sender, EventArgs e) => {
 				var string_key = "41f579fc-1445-4065-ab10-c06d50e724d3";
-				cocoservices.tinnova.mx.COCOService servicio = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
+				//cocoservices.tinnova.mx.COCOService servicio = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
+				services_911consumidor_com.COCOService servicio = new Navigation_View.services_911consumidor_com.COCOService();
 				try {
 
 					var resultado = 0;
-					resultado = servicio.CreateTicketDetail (new Navigation_View.cocoservices.tinnova.mx.TicketDetailDTO {
+					resultado = servicio.CreateTicketDetail (new Navigation_View.services_911consumidor_com.TicketDetailDTO {
 						TIC_ID = Convert.ToInt32 (TicketID.ToString ()),
 						Message = txtComentario.Text.Trim (),
 						DetailDate = DateTime.Now,
 						Subject = "Mensaje Consumidor",
-						Status = new Navigation_View.cocoservices.tinnova.mx.StatusDTO {
+						Status = new Navigation_View.services_911consumidor_com.StatusDTO {
 							Id = 12,
 							OBJ_ID = 5
 						},
-						Agent = new Navigation_View.cocoservices.tinnova.mx.UserDTO {
+						Agent = new Navigation_View.services_911consumidor_com.UserDTO {
 							UserId = string.Empty
 						}
 					}, string_key);

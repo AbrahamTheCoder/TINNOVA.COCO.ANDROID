@@ -26,8 +26,12 @@
     <View
         android:background="@android:color/white"
         android:id="@+id/view1"
-        android:layout_height="20dp"
+        android:layout_height="1dp"
         android:layout_width="match_parent" />
+<!--        <ScrollView
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/scrollView1">-->
     <LinearLayout
         android:id="@+id/LayoutNewComment"
         android:orientation="vertical"
@@ -36,26 +40,28 @@
         <Navigation_View.MyEditText
             android:id="@+id/txtNewComment"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="240dp"
             android:background="@android:color/darker_gray"
             android:hint="Comenta"
-            android:inputType="text"
-            android:textAlignment="viewStart"
+            android:inputType="textMultiLine"
+            android:textAlignment="gravity"
             android:textColor="#ff000000"
             android:accessibilityLiveRegion="polite"
             android:backgroundTint="#F2F2F2"
             android:singleLine="false"
+            android:textSize="20sp"
             card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
-            android:lines="10"
-            android:gravity="top" />
+            android:maxLines="10"
+            android:gravity="top|left" />
         <Button
             android:id="@+id/btnEnviarComentario"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_below="@id/txtNewComment"
             android:text="Enviar"
             android:background="@android:color/white"
             android:textColor="#FF6600"
             android:fontFamily="helvetica" />
     </LinearLayout>
+<!--    </ScrollView>-->
 </LinearLayout>

@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
+    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,6 +64,15 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="Microsoft.WindowsAzure.Messaging.Android">
+      <HintPath>..\Components\azure-messaging-1.1.5.6\lib\android\Microsoft.WindowsAzure.Messaging.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="GCM.Client">
+      <HintPath>..\Components\GCMClient-1.0\lib\android\GCM.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Auth.Android">
+      <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\android\Xamarin.Auth.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -88,6 +98,13 @@
     <Compile Include="adapter\SeguimientoDetail_Adapter.cs" />
     <Compile Include="Clases\MyTextView.cs" />
     <Compile Include="Clases\MyEditText.cs" />
+    <Compile Include="Web References\services_911consumidor_com\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Constans.cs" />
+    <Compile Include="Clases\MyBroadcastReceiver.cs" />
+    <Compile Include="Clases\AccountCore.cs" />
+    <Compile Include="RegisterActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -97,6 +114,12 @@
     <None Include="Web References\cocoservices.tinnova.mx\cocoservice.disco" />
     <None Include="Web References\cocoservices.tinnova.mx\cocoservice.wsdl" />
     <None Include="Web References\cocoservices.tinnova.mx\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\services_911consumidor_com\cocoservice.disco" />
+    <None Include="Web References\services_911consumidor_com\cocoservice.wsdl" />
+    <None Include="Web References\services_911consumidor_com\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -122,7 +145,6 @@
     <AndroidResource Include="Resources\drawable\ticket.png" />
     <AndroidResource Include="Resources\layout\layout_configuracion.axml" />
     <AndroidResource Include="Resources\layout\layout_tickets.axml" />
-    <AndroidResource Include="Resources\layout\layout_tips.axml" />
     <AndroidResource Include="Resources\layout\layout_news.axml" />
     <AndroidResource Include="Resources\drawable\material.jpg" />
     <AndroidResource Include="Resources\drawable\COCOico57x57.png" />
@@ -157,6 +179,13 @@
     <AndroidResource Include="Resources\drawable\yellowSeguimiento.png" />
     <AndroidResource Include="Resources\drawable\RedAbierta.png" />
     <AndroidResource Include="Resources\drawable\greencerrado.png" />
+    <AndroidResource Include="Resources\drawable\balanza.png" />
+    <AndroidResource Include="Resources\drawable\Seguimiento.png" />
+    <AndroidResource Include="Resources\drawable\boletin.png" />
+    <AndroidResource Include="Resources\drawable\marca911.png" />
+    <AndroidResource Include="Resources\drawable\OrangeBack.png" />
+    <AndroidResource Include="Resources\layout\layout_main.axml" />
+    <AndroidResource Include="Resources\layout\layout_register.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -173,6 +202,18 @@
       <Version>1.0.4.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+    <XamarinComponentReference Include="azure-messaging">
+      <Version>1.1.5.6</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="GCMClient">
+      <Version>1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamarin.auth">
+      <Version>1.2.3.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References" />
@@ -182,6 +223,11 @@
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\cocoservices.tinnova.mx</RelPath>
       <UpdateFromURL>http://cocoservices.tinnova.mx/cocoservice.asmx</UpdateFromURL>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://services.911consumidor.com/cocoservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\services_911consumidor_com</RelPath>
+      <UpdateFromURL>http://services.911consumidor.com/cocoservice.asmx</UpdateFromURL>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

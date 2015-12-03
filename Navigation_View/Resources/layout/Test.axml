@@ -3,8 +3,9 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:animateLayoutChanges="true"
+    android:background="#ffff6600"
     android:id="@+id/linearLayout31">
     <RelativeLayout
         android:orientation="vertical"
@@ -13,85 +14,67 @@
         android:layout_weight="1"
         android:animateLayoutChanges="true"
         android:id="@+id/linearLayout1">
-        <Navigation_View.MyTextView
-            android:text="Orden Ticket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:textAppearance="@android:style/TextAppearance.Material.Title"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="5dp"
-            card_view:customFont="Fonts/HelveticaNeue-ThinCond.otf"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="#ff000000"
-            android:id="@+id/txtOrderTicket" />
-        <Navigation_View.MyTextView
-            android:text="Nombre"
-            android:layout_width="fill_parent"
-            android:layout_below="@id/txtOrderTicket"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="10sp"
-            card_view:customFont="Fonts/HelveticaNeue-ThinCond.otf"
-            android:textColor="#898a88"
-            android:id="@+id/txtNombreTicket" />
-        <Navigation_View.MyTextView
-            android:text="Fecha de Ticket"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="5dp"
-            android:layout_below="@id/txtNombreTicket"
-            android:textSize="10sp"
-            card_view:customFont="Fonts/HelveticaNeue-ThinCond.otf"
-            android:textColor="#898a88"
-            android:id="@+id/txtFechaTicket" />
         <ImageView
-            android:id="@+id/img_semaforo"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_below="@id/txtFechaTicket" />
-    <!--        <TextView
-            android:text="Correo Cliente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="10sp"
-            android:textColor="#BCBCBC"
-            android:id="@+id/txtCorreoTicket" />-->
+            android:id="@+id/img_denuncia"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/marca911"
+            android:layout_marginLeft="120dp" />
         <Navigation_View.MyTextView
-            android:id="@+id/txtStatusTicket"
+            android:text="Denuncia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"
-            android:layout_below="@id/txtFechaTicket"
-            android:layout_toRightOf="@id/img_semaforo"
-            android:textSize="10sp"
-            card_view:customFont="Fonts/HelveticaNeue-ThinCond.otf"
-            android:textColor="#BCBCBC"
-            android:text="Status Ticket" />
-    <!--        <TextView
-            android:id="@+id/txtNotaTicket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="10sp"
-            android:textColor="#BCBCBC"
-            android:text="Ticket Nota" />-->
+            android:layout_below="@id/img_denuncia"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="25dp"
+            android:paddingBottom="25dp"
+            card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
+            android:layout_alignEnd="@id/img_denuncia"
+            android:textSize="30sp"
+            android:textColor="#ffffffff"
+            android:id="@+id/txtDenuncia" />
+    <!--        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/white" />-->
         <Button
-            android:id="@+id/btnDetalleSeguimiento"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_below="@id/img_semaforo"
+            android:text="Boletín"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtDenuncia"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="15sp"
+            card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableLeft="@drawable/boletin"
+            android:textColor="#ffffffff"
+            android:id="@+id/btnBoletin" />
+        <Button
+            android:text="Asesoría Jurídica"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@id/btnBoletin"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/balanza"
+            card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="#ffffffff"
+            android:id="@+id/btnAsesoria" />
+        <Button
+            android:id="@+id/btnSeguimiento"
+            android:layout_width="fill_parent"
+            android:layout_height="55dp"
             android:layout_marginTop="3dp"
             android:layout_marginLeft="5dp"
+            android:layout_below="@id/btnAsesoria"
+            android:textSize="15sp"
+            card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
             android:background="?android:attr/selectableItemBackground"
-            android:text="Detalle"
-            android:textColor="#ffff6600" />
+            android:drawableLeft="@drawable/seguimiento"
+            android:textColor="#ffffffff"
+            android:text="Seguimiento" />
     </RelativeLayout>
 </LinearLayout>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://services.911consumidor.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.911consumidor.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://services.911consumidor.com">
+      <s:element name="GetActivePublications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActivePublicationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActivePublicationsResult" type="tns:ArrayOfPublicationDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPublicationDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PublicationDTO" nillable="true" type="tns:PublicationDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PublicationDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Tittle" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SubTittle" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PublicationDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:StatusDTO" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" type="tns:TypeDTO" />
+              <s:element minOccurs="0" maxOccurs="1" name="User" type="tns:UserDTO" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ImageUrl" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseDTO" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AddressState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AddressCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TypeDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Object" type="tns:ObjectDTO" />
+              <s:element minOccurs="1" maxOccurs="1" name="ObjId" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ObjectDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StatusDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="OBJ_ID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Object" type="tns:ObjectDTO" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CreateTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objDto" type="tns:TicketDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TicketDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseDTO">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="TicketDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:StatusDTO" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" type="tns:TypeDTO" />
+              <s:element minOccurs="0" maxOccurs="1" name="User" type="tns:UserDTO" />
+              <s:element minOccurs="0" maxOccurs="1" name="Client" type="tns:UserDTO" />
+              <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TicketDetail" type="tns:ArrayOfTicketDetailDTO" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfTicketDetailDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TicketDetailDTO" nillable="true" type="tns:TicketDetailDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TicketDetailDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseDTO">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="TIC_ID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DetailDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:StatusDTO" />
+              <s:element minOccurs="0" maxOccurs="1" name="Agent" type="tns:UserDTO" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CreateTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTicketResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTicketDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objDto" type="tns:TicketDetailDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTicketDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTicketDetailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketsByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketsByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTicketsByUserResult" type="tns:ArrayOfTicketDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTicketDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TicketDTO" nillable="true" type="tns:TicketDTO" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetActivePublicationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivePublications" />
+  </wsdl:message>
+  <wsdl:message name="GetActivePublicationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivePublicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTicket" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTicketDetail" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTicketDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketsByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTicketsByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketsByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTicketsByUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="COCOServiceSoap">
+    <wsdl:operation name="GetActivePublications">
+      <wsdl:input message="tns:GetActivePublicationsSoapIn" />
+      <wsdl:output message="tns:GetActivePublicationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <wsdl:input message="tns:CreateTicketSoapIn" />
+      <wsdl:output message="tns:CreateTicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketDetail">
+      <wsdl:input message="tns:CreateTicketDetailSoapIn" />
+      <wsdl:output message="tns:CreateTicketDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketsByUser">
+      <wsdl:input message="tns:GetTicketsByUserSoapIn" />
+      <wsdl:output message="tns:GetTicketsByUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="COCOServiceSoap" type="tns:COCOServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetActivePublications">
+      <soap:operation soapAction="http://services.911consumidor.com/GetActivePublications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <soap:operation soapAction="http://services.911consumidor.com/CreateTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketDetail">
+      <soap:operation soapAction="http://services.911consumidor.com/CreateTicketDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketsByUser">
+      <soap:operation soapAction="http://services.911consumidor.com/GetTicketsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="COCOServiceSoap12" type="tns:COCOServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetActivePublications">
+      <soap12:operation soapAction="http://services.911consumidor.com/GetActivePublications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <soap12:operation soapAction="http://services.911consumidor.com/CreateTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketDetail">
+      <soap12:operation soapAction="http://services.911consumidor.com/CreateTicketDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketsByUser">
+      <soap12:operation soapAction="http://services.911consumidor.com/GetTicketsByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="COCOService">
+    <wsdl:port name="COCOServiceSoap" binding="tns:COCOServiceSoap">
+      <soap:address location="http://services.911consumidor.com/cocoservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="COCOServiceSoap12" binding="tns:COCOServiceSoap12">
+      <soap12:address location="http://services.911consumidor.com/cocoservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

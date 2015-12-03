@@ -86,15 +86,15 @@ namespace Navigation_View
 
 			MyHolder.DetalleTicket.Click += (object sender, EventArgs e) => {
 				Intent intentDetailsTicket = new Intent (this.mContext, typeof(SeguimientoDetailActivity));
-				intentDetailsTicket.PutExtra ("TicketID",mTickets[position].TicketID.ToString ());
-				int TicketID = Convert.ToInt32 (mTickets[position].TicketID.ToString ());
-				List<TicketDetail> ListResults = mTicketDetails.FindAll ( x => x.TicketID == TicketID);
+				intentDetailsTicket.PutExtra ("TicketID", mTickets [position].TicketID.ToString ());
+				int TicketID = Convert.ToInt32 (mTickets [position].TicketID.ToString ());
+				//List<TicketDetail> ListResults = mTicketDetails.FindAll (x => x.TicketID == TicketID);
 
 				//ArrayList<TicketDetail> ListArray = new ArrayList<TicketDetail>();
 //				Bundle bundle = new Bundle();
 //				bundle.PutParcelable("TicketDetalle",ListResults);
 				//intentDetailsTicket.PutParcelableArrayListExtra ("TicketDetalle",ListResults);
-				DetallesTicket = ListResults;
+				DetallesTicket = mTicketDetails;
 				this.mContext.StartActivity (intentDetailsTicket);
 			};
 

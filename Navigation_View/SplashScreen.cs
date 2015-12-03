@@ -13,6 +13,10 @@ using Android.Widget;
 using System.Threading;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
+using Gcm.Client;
+using Android.Util;
+using Android.Content.PM;
+using Xamarin.Auth;
 
 namespace Navigation_View
 {
@@ -23,9 +27,21 @@ namespace Navigation_View
 		{
 			base.OnCreate (bundle);
 			Thread.Sleep (2000);
+			RegisterWithGCM ();
 			StartActivity (typeof(MainActivity));
 			// Create your application here
 
+		}
+
+		private void RegisterWithGCM()
+		{
+			// Check to ensure everything's set up right
+			GcmClient.CheckDevice(this);
+			GcmClient.CheckManifest(this);
+
+			// Register for push notifications
+			Log.Info("MainActivity", "Registering...");
+			GcmClient.Register(this, Constans.SenderID);
 		}
 	}
 }

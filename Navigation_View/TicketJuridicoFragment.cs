@@ -34,7 +34,14 @@ namespace Navigation_View
 		{
 			ViewGroup root = (ViewGroup)inflater.Inflate (Resource.Layout.layout_ticketjuridico, null);
 
-			cocoservices.tinnova.mx.COCOService cliente = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
+			TextView txtCorreo = root.FindViewById<TextView> (Resource.Id.txtEmail);
+
+			if (!string.IsNullOrEmpty (TipsFragment.Email)) {
+				txtCorreo.Text = TipsFragment.Email.Trim ();
+			}
+
+			//cocoservices.tinnova.mx.COCOService cliente = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
+			services_911consumidor_com.COCOService cliente = new Navigation_View.services_911consumidor_com.COCOService();
 
 			//cliente.ChannelFactory.CreateChannel ();
 			string string_key = "41f579fc-1445-4065-ab10-c06d50e724d3";
@@ -45,7 +52,6 @@ namespace Navigation_View
 			btnRegistrar.Click += (object sender, EventArgs e) => {
 				string strError = "";
 				EditText txtNombre = root.FindViewById<EditText> (Resource.Id.txtNombreApellido);
-				EditText txtCorreo = root.FindViewById<EditText> (Resource.Id.txtEmail);
 				EditText txtTelefono = root.FindViewById<EditText> (Resource.Id.txtPhone);
 				Spinner ddEstado = root.FindViewById<Spinner> (Resource.Id.ddlEstado);
 				EditText txtCiudad = root.FindViewById<EditText> (Resource.Id.txtCiudad);
@@ -63,12 +69,7 @@ namespace Navigation_View
 						txtNombre.SetError ("Es requerido un Nombre ", icon_error);
 						strError += "Nombre";
 					}
-					if (!string.IsNullOrEmpty (txtCorreo.Text.Trim ()))
-						ticket.Email = txtCorreo.Text.Trim ();
-					else {
-						txtCorreo.SetError ("Es requerido un Correo Electronico ", icon_error);
-						strError += "Correo Electronico";
-					}
+					ticket.Email = txtCorreo.Text.Trim ();
 					if (!string.IsNullOrEmpty (txtTelefono.Text.Trim ()))
 						ticket.Telefono = txtTelefono.Text.Trim ();
 					else {
@@ -88,8 +89,8 @@ namespace Navigation_View
 
 					if (string.IsNullOrEmpty (strError)) {
 						resultado = cliente.CreateTicket (
-							new Navigation_View.cocoservices.tinnova.mx.TicketDTO {	
-								Client = new Navigation_View.cocoservices.tinnova.mx.UserDTO {	
+							new Navigation_View.services_911consumidor_com.TicketDTO {	
+								Client = new Navigation_View.services_911consumidor_com.UserDTO {	
 									FirstName = ticket.Nombre,
 									LastName = string.Empty,
 									Email = ticket.Email,
@@ -98,27 +99,27 @@ namespace Navigation_View
 									AddressCity = ticket.Ciudad,
 									AddressState = ticket.Estado
 								},
-								Status = new Navigation_View.cocoservices.tinnova.mx.StatusDTO {	
+								Status = new Navigation_View.services_911consumidor_com.StatusDTO {	
 									OBJ_ID = 2, 
 									Id = 3
 								}, 
-								Type = new Navigation_View.cocoservices.tinnova.mx.TypeDTO { 
+								Type = new Navigation_View.services_911consumidor_com.TypeDTO { 
 									ObjId = 2, 
 									Id = 3
 								},
-								User = new Navigation_View.cocoservices.tinnova.mx.UserDTO {
+								User = new Navigation_View.services_911consumidor_com.UserDTO {
 									Id = 3
 								},
-								TicketDetail = new Navigation_View.cocoservices.tinnova.mx.TicketDetailDTO[] {
-									new Navigation_View.cocoservices.tinnova.mx.TicketDetailDTO {
+								TicketDetail = new Navigation_View.services_911consumidor_com.TicketDetailDTO[] {
+									new Navigation_View.services_911consumidor_com.TicketDetailDTO {
 										DetailDate = DateTime.Now,
 										Subject = "Contacto Consumidor",
-										Status = new Navigation_View.cocoservices.tinnova.mx.StatusDTO {
+										Status = new Navigation_View.services_911consumidor_com.StatusDTO {
 											OBJ_ID = 2,
 											Id = 3
 										},
 										Message = string.Empty,
-										Agent = new Navigation_View.cocoservices.tinnova.mx.UserDTO {
+										Agent = new Navigation_View.services_911consumidor_com.UserDTO {
 											UserId = string.Empty
 										},
 										TIC_ID = 3
