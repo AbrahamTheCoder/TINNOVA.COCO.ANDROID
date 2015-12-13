@@ -14,6 +14,7 @@ using Android.Widget;
 using Android.Support.V4.Widget;
 using Android.Support.Design.Widget;
 using Android.Graphics.Drawables;
+using Android.Graphics;
 
 namespace Navigation_View
 {
@@ -43,11 +44,15 @@ namespace Navigation_View
 			services_911consumidor_com.COCOService cliente = new Navigation_View.services_911consumidor_com.COCOService();
 
 			string string_key = "41f579fc-1445-4065-ab10-c06d50e724d3";
-
+			Typeface font = Typeface.CreateFromAsset (Application.Context.Assets, "Fonts/HelveticaNeue-Thin.otf");
 
 			Button btnRegistrar = root.FindViewById<Button> (Resource.Id.btnAceptar);
 
+			btnRegistrar.SetTypeface (font, TypefaceStyle.Normal);
+
 			btnRegistrar.Click += (object sender, EventArgs e) => {
+				btnRegistrar.SetBackgroundColor (Color.White);
+				btnRegistrar.SetTextColor (Color.Orange);
 				string strError = "";
 				EditText txtNombre = root.FindViewById<EditText> (Resource.Id.txtNombre);
 				//EditText txtApellido = root.FindViewById<EditText>(Resource.Id.txtApellido);

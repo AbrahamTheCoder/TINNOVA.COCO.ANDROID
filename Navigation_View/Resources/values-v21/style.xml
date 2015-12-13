@@ -6,8 +6,9 @@
 
 <style name="MyTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
 
-<item name="android:statusBarColor">#FF6600</item>
+
 <item name="colorPrimary">#FF6600</item>
+<item name="android:statusBarColor">#ffb833</item>
 
 </style>
 

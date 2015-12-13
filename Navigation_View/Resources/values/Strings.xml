@@ -3,10 +3,11 @@
 	<string name="app_name">911 Consumidor</string>
 	<string name="boletin">Boletín</string>
 	<string name="monedero">Monedero</string>
-	<string name="QuejasDenuncias">Quejas y Denuncias</string>
-	<string name="Apoyo_Juridico">Apoyo Juridico</string>
+	<string name="QuejasDenuncias">Denuncias</string>
+	<string name="Apoyo_Juridico">Asesoria Juridico</string>
 	<string name="Seguimiento">Seguimiento</string>
 	<string name="Registro">Registro de Usuario</string>
+	<string name="Sesion">Iniciar Sesión</string>
 
 
 	<style name="Theme.Splash" parent="android:Theme">

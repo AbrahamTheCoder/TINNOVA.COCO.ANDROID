@@ -34,6 +34,7 @@
     </receiver>
     <service android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.PushHandlerService" />
     <activity android:label="Registro" android:screenOrientation="portrait" android:theme="@style/MyTheme" android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.RegisterActivity" />
+    <activity android:label="Iniciar Sesión" android:screenOrientation="portrait" android:theme="@style/MyTheme" android:name="md5f9c5657ee0cdb65189d6cc51fb6de8b7.IniciarSesionActivity" />
     <activity android:label="Web Authenticator" android:name="md550f8a10a740eb4fb6376baab8337ce22.FormAuthenticatorActivity" />
     <activity android:label="Web Authenticator" android:name="md550f8a10a740eb4fb6376baab8337ce22.WebAuthenticatorActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.beraybentesen.navigation_view.mono.MonoRuntimeProvider.__mono_init__" />

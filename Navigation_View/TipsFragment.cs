@@ -13,6 +13,8 @@ using Android.Views;
 using Android.Widget;
 using Dalvik.SystemInterop;
 using Xamarin.Auth;
+using Android.Graphics;
+using Android.Content.Res;
 
 namespace Navigation_View
 {
@@ -27,6 +29,7 @@ namespace Navigation_View
 		private SupportFragment mCurrentFragment = new SupportFragment();
 		private Stack<SupportFragment> mStackFragments;
 		public static string Email;
+		public static string Nombre;
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -51,7 +54,14 @@ namespace Navigation_View
 			var btnTicket = root.FindViewById<Button> (Resource.Id.btnAsesoria);
 			var btnSeguimiento = root.FindViewById<Button> (Resource.Id.btnSeguimiento);
 
+			Typeface font = Typeface.CreateFromAsset (Application.Context.Assets, "Fonts/HelveticaNeue-Thin.otf");
+			btnSeguimiento.SetTypeface (font, TypefaceStyle.Normal);
+			btnBoletin.SetTypeface (font, TypefaceStyle.Normal);
+			btnTicket.SetTypeface (font, TypefaceStyle.Normal);
+
 			var ToolBar = Activity.FindViewById<Android.Support.V7.Widget.Toolbar> (Resource.Id.ToolBar);
+			var ToolBarTitle = Activity.FindViewById<TextView> (Resource.Id.toolbar_title);
+			ToolBar.Visibility = ViewStates.Gone;
 			ToolBar.SetTitle (Resource.String.app_name);
 
 			news = new NewsFragment ();
@@ -71,11 +81,12 @@ namespace Navigation_View
 
 
 
-			btnBoletin.Click += (object sender, EventArgs e) => 
-			{
-				ToolBar.SetTitle (Resource.String.boletin);
+			btnBoletin.Click += (object sender, EventArgs e) => {
+				ToolBar.Visibility = ViewStates.Visible;
+				//ToolBar.SetTitle (Resource.String.boletin);
+				ToolBarTitle.SetText (Resource.String.boletin);
 				Android.Support.V4.App.Fragment fragment = null;
-				fragment = new NewsFragment();
+				fragment = new NewsFragment ();
 				Activity.SupportFragmentManager.BeginTransaction ().Replace (Resource.Id.layout_content, fragment).Commit ();
 			};
 
@@ -91,8 +102,10 @@ namespace Navigation_View
 				} else {
 					foreach (var account in accounts) {
 						Email = account.Properties ["Email"];
+						Nombre = account.Properties["FName"];
 					}
-					ToolBar.SetTitle (Resource.String.QuejasDenuncias);
+					ToolBar.Visibility = ViewStates.Visible;
+					ToolBarTitle.SetText (Resource.String.QuejasDenuncias);
 					Android.Support.V4.App.Fragment fragment = null;
 					fragment = new TicketJuridicoFragment ();
 					Activity.SupportFragmentManager.BeginTransaction ().Replace (Resource.Id.layout_content, fragment).Commit ();
@@ -101,7 +114,8 @@ namespace Navigation_View
 
 			btnSeguimiento.Click += (object sender, EventArgs e) => 
 			{
-				ToolBar.SetTitle (Resource.String.Seguimiento);
+				ToolBar.Visibility = ViewStates.Visible;
+				ToolBarTitle.SetText (Resource.String.Seguimiento);
 				Android.Support.V4.App.Fragment fragment = null;
 				fragment = new SeguimientoFragment();
 				Activity.SupportFragmentManager.BeginTransaction ().Replace (Resource.Id.layout_content, fragment).Commit ();

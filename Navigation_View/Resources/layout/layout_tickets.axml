@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -16,62 +17,82 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:stretchColumns="1">
+            <Navigation_View.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ff000000"
+                android:textAlignment="center"
+                android:gravity="center"
+                card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
+                android:text="Por favor introduce tu informacion para poder dar seguimiento a tu solicitud" />
+            <Navigation_View.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FF6600"
+                android:textAlignment="center"
+                card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
+                android:text="Aviso de Privacidad"
+                android:gravity="center" />
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
+                <Navigation_View.MyEditText
                     android:id="@+id/txtNombre"
-                    android:hint="Nombre y Apellido"
+                    android:hint="Nombre"
                     android:inputType="text"
+                    card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp">
                     <requestFocus />
-                </EditText>
+                </Navigation_View.MyEditText>
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
+                <Navigation_View.MyEditText
                     android:id="@+id/txtEmail"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
+                    card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp">
                     <requestFocus />
-                </EditText>
+                </Navigation_View.MyEditText>
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
+                <Navigation_View.MyEditText
                     android:id="@+id/txtPhone"
                     android:hint="Teléfono"
                     android:inputType="number"
+                    card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp">
                     <requestFocus />
-                </EditText>
+                </Navigation_View.MyEditText>
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
+                <Navigation_View.MyEditText
                     android:id="@+id/txtCiudad"
                     android:hint="Ciudad"
                     android:layout_width="match_parent"
+                    card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp">
                     <requestFocus />
-                </EditText>
+                </Navigation_View.MyEditText>
             </android.support.design.widget.TextInputLayout>
-            <TextView
+            <Navigation_View.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Estado"
@@ -89,23 +110,23 @@
                 android:entries="@array/estado_array"
                 android:layout_gravity="bottom"
                 style="@style/Widget.AppCompat.Spinner.Underlined" />
-            <android.support.design.widget.TextInputLayout
+            <Navigation_View.MyEditText
+                android:id="@+id/txtNota"
+                android:hint="Describe tu caso"
+                card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/txtNota"
-                    android:hint="Comentario"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp">
-                    <requestFocus />
-                </EditText>
-            </android.support.design.widget.TextInputLayout>
+                android:layout_height="match_parent"
+                android:background="#F2F2F2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <requestFocus />
+            </Navigation_View.MyEditText>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Enviar"
+                android:background="@drawable/borderlayout"
+                android:textColor="@android:color/white"
                 android:id="@+id/btnAceptar" />
         </TableLayout>
     </ScrollView>

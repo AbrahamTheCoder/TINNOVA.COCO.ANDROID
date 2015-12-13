@@ -27,7 +27,11 @@ namespace Navigation_View
 			SetContentView (Resource.Layout.layout_item);
 
 			_supporttoolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.ToolBarBoletin);
-			_supporttoolbar.SetTitle(Resource.String.boletin);
+			var ToolbarTitle = FindViewById<TextView> (Resource.Id.toolbar_title);
+			var ToolbarImage = FindViewById<ImageView> (Resource.Id.toolbar_back);
+			//_supporttoolbar.SetTitle(Resource.String.boletin);
+			ToolbarTitle.SetText (Resource.String.boletin);
+			ToolbarImage.SetImageResource (Resource.Drawable.Back48x48);
 			SetSupportActionBar(_supporttoolbar);
 			SupportActionBar.SetDisplayHomeAsUpEnabled(false);
 
@@ -46,6 +50,15 @@ namespace Navigation_View
 			txtContenidoDetalle.Text = Intent.GetStringExtra ("ContenidoDetalle");
 			Koush.UrlImageViewHelper.SetUrlDrawable (ImagenDetalle, Intent.GetStringExtra ("ImagenDetalle"));
 
+			_supporttoolbar.Click += (object sender, EventArgs e) => 
+			{
+				StartActivity (typeof(MainActivity));
+			};
+
+			ToolbarImage.Click += (object sender, EventArgs e) => 
+			{
+				base.OnBackPressed ();
+			};
 
 		}
 	}

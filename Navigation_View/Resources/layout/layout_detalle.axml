@@ -11,9 +11,45 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:elevation="2dp"
+        android:clickable="true"
         card_view:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:minHeight="?attr/actionBarSize"
-        android:background="#FF6600" />
+        android:background="#FF6600">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/toolbar_backSeg"
+                android:src="@drawable/back48x48"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_gravity="left" />
+            <Navigation_View.MyTextView
+                android:id="@+id/toolbar_titleDetalle"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse" />
+            <ImageView
+                android:id="@+id/toolbar_logo"
+                android:src="@drawable/icono91148x48"
+                android:layout_width="50dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="4dp"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_gravity="right" />
+        </FrameLayout>
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="250dp">
@@ -28,10 +64,6 @@
         android:id="@+id/view1"
         android:layout_height="1dp"
         android:layout_width="match_parent" />
-<!--        <ScrollView
-        	android:layout_width="match_parent"
-        	android:layout_height="wrap_content"
-        	android:id="@+id/scrollView1">-->
     <LinearLayout
         android:id="@+id/LayoutNewComment"
         android:orientation="vertical"
@@ -40,14 +72,13 @@
         <Navigation_View.MyEditText
             android:id="@+id/txtNewComment"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:background="@android:color/darker_gray"
+            android:layout_height="200dp"
+            android:background="#F2F2F2"
             android:hint="Comenta"
             android:inputType="textMultiLine"
             android:textAlignment="gravity"
             android:textColor="#ff000000"
             android:accessibilityLiveRegion="polite"
-            android:backgroundTint="#F2F2F2"
             android:singleLine="false"
             android:textSize="20sp"
             card_view:customFont="Fonts/HelveticaNeue-Thin.otf"
@@ -59,8 +90,8 @@
             android:layout_height="40dp"
             android:layout_below="@id/txtNewComment"
             android:text="Enviar"
-            android:background="@android:color/white"
-            android:textColor="#FF6600"
+            android:background="@drawable/borderlayout"
+            android:textColor="@android:color/white"
             android:fontFamily="helvetica" />
     </LinearLayout>
 <!--    </ScrollView>-->

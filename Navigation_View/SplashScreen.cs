@@ -26,7 +26,7 @@ namespace Navigation_View
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
-			Thread.Sleep (2000);
+			Thread.Sleep (1000);
 			RegisterWithGCM ();
 			StartActivity (typeof(MainActivity));
 			// Create your application here

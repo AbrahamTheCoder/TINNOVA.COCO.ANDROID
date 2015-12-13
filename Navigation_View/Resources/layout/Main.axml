@@ -18,15 +18,31 @@
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:minHeight="?attr/actionBarSize"
             android:clickable="true"
-            android:onClick="ReturnMenu"
             android:background="#FF6600">
-        <!--            <ImageView
-                android:id="@+id/img_Inicio"
-                android:background="@android:drawable/ic_dialog_alert"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:paddingRight="20dp"
-                android:clickable="true" />-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Navigation_View.MyTextView
+                    android:id="@+id/toolbar_title"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:textColor="@android:color/white"
+                    app:customFont="Fonts/HelveticaNeue-Thin.otf"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse" />
+                <ImageView
+                    android:id="@+id/toolbar_logo"
+                    android:src="@drawable/icono91148x48"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    style="@style/Widget.AppCompat.ActionButton"
+                    android:layout_gravity="right" />
+            </FrameLayout>
         </android.support.v7.widget.Toolbar>
         <FrameLayout
             android:id="@+id/layout_content"

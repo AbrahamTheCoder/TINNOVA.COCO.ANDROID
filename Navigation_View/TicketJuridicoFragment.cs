@@ -12,6 +12,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Android.Graphics.Drawables;
+using Android.Graphics;
 
 namespace Navigation_View
 {
@@ -35,9 +36,15 @@ namespace Navigation_View
 			ViewGroup root = (ViewGroup)inflater.Inflate (Resource.Layout.layout_ticketjuridico, null);
 
 			TextView txtCorreo = root.FindViewById<TextView> (Resource.Id.txtEmail);
+			TextView txtNombre = root.FindViewById<TextView> (Resource.Id.txtNombreApellido);
+			TextView txtAvisoPrivacidad = root.FindViewById<TextView> (Resource.Id.txtAvisoPrivacidad);
 
 			if (!string.IsNullOrEmpty (TipsFragment.Email)) {
 				txtCorreo.Text = TipsFragment.Email.Trim ();
+			}
+
+			if (!string.IsNullOrEmpty (TipsFragment.Nombre)) {
+				txtNombre.Text = TipsFragment.Nombre.Trim ();
 			}
 
 			//cocoservices.tinnova.mx.COCOService cliente = new Navigation_View.cocoservices.tinnova.mx.COCOService ();
@@ -46,12 +53,26 @@ namespace Navigation_View
 			//cliente.ChannelFactory.CreateChannel ();
 			string string_key = "41f579fc-1445-4065-ab10-c06d50e724d3";
 
+			Typeface font = Typeface.CreateFromAsset (Application.Context.Assets, "Fonts/HelveticaNeue-Thin.otf");
 
 			Button btnRegistrar = root.FindViewById<Button> (Resource.Id.btnAceptar);
 
+
+			btnRegistrar.SetTypeface (font, TypefaceStyle.Normal);
+
+			txtAvisoPrivacidad.Click += (object sender, EventArgs e) => 
+			{
+				var uri = Android.Net.Uri.Parse ("http://www.911Consumidor.com/avisoPrivacidad");
+				var intent = new Intent (Intent.ActionView, uri);
+				StartActivity (intent);
+			};
+
+
 			btnRegistrar.Click += (object sender, EventArgs e) => {
+				btnRegistrar.SetBackgroundColor (Color.White);
+				btnRegistrar.SetTextColor (Color.Orange);
 				string strError = "";
-				EditText txtNombre = root.FindViewById<EditText> (Resource.Id.txtNombreApellido);
+				//EditText txtNombre = root.FindViewById<EditText> (Resource.Id.txtNombreApellido);
 				EditText txtTelefono = root.FindViewById<EditText> (Resource.Id.txtPhone);
 				Spinner ddEstado = root.FindViewById<Spinner> (Resource.Id.ddlEstado);
 				EditText txtCiudad = root.FindViewById<EditText> (Resource.Id.txtCiudad);
@@ -63,12 +84,12 @@ namespace Navigation_View
 
 					Ticket ticket = new Ticket ();
 
-					if (!string.IsNullOrEmpty (txtNombre.Text.Trim ()))
-						ticket.Nombre = txtNombre.Text.Trim ();
-					else {
-						txtNombre.SetError ("Es requerido un Nombre ", icon_error);
-						strError += "Nombre";
-					}
+//					if (!string.IsNullOrEmpty (txtNombre.Text.Trim ()))
+//						ticket.Nombre = txtNombre.Text.Trim ();
+//					else {
+//						txtNombre.SetError ("Es requerido un Nombre ", icon_error);
+//						strError += "Nombre";
+//					}
 					ticket.Email = txtCorreo.Text.Trim ();
 					if (!string.IsNullOrEmpty (txtTelefono.Text.Trim ()))
 						ticket.Telefono = txtTelefono.Text.Trim ();
@@ -131,6 +152,9 @@ namespace Navigation_View
 						if (resultado != 0) {
 							new AlertDialog.Builder (root.Context)
 								.SetMessage ("Muchas gracias por ponerte en contacto con 911 CONSUMIDOR, en breve recibirás una respuesta a tu caso.")
+								.SetPositiveButton ("OK", delegate {
+								Console.WriteLine ("OK");
+							})
 								.SetTitle ("ATENCIÓN")
 								.Show ();
 						}
@@ -141,6 +165,9 @@ namespace Navigation_View
 					new AlertDialog.Builder (root.Context)
 						.SetMessage ("Ocurrio un error: " + ex.Message.ToString ())
 						.SetTitle ("ATENCIÓN")
+						.SetPositiveButton ("OK", delegate {
+						Console.WriteLine ("OK");
+					})
 						.Show ();
 				} finally {
 					//txtApellido.Text="";

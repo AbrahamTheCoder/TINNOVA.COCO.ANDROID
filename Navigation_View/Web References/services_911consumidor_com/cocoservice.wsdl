@@ -55,6 +55,8 @@
               <s:element minOccurs="0" maxOccurs="1" name="AddressState" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="AddressCity" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Device" type="s:string" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -177,6 +179,36 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="TicketDTO" nillable="true" type="tns:TicketDTO" />
         </s:sequence>
       </s:complexType>
+      <s:element name="AccountRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objDto" type="tns:UserDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountRegistrationResult" type="tns:UserDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objDto" type="tns:UserDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountLoginResult" type="tns:UserDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetActivePublicationsSoapIn">
@@ -203,6 +235,18 @@
   <wsdl:message name="GetTicketsByUserSoapOut">
     <wsdl:part name="parameters" element="tns:GetTicketsByUserResponse" />
   </wsdl:message>
+  <wsdl:message name="AccountRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:AccountRegistration" />
+  </wsdl:message>
+  <wsdl:message name="AccountRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:AccountRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:AccountLogin" />
+  </wsdl:message>
+  <wsdl:message name="AccountLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:AccountLoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="COCOServiceSoap">
     <wsdl:operation name="GetActivePublications">
       <wsdl:input message="tns:GetActivePublicationsSoapIn" />
@@ -219,6 +263,14 @@
     <wsdl:operation name="GetTicketsByUser">
       <wsdl:input message="tns:GetTicketsByUserSoapIn" />
       <wsdl:output message="tns:GetTicketsByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountRegistration">
+      <wsdl:input message="tns:AccountRegistrationSoapIn" />
+      <wsdl:output message="tns:AccountRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountLogin">
+      <wsdl:input message="tns:AccountLoginSoapIn" />
+      <wsdl:output message="tns:AccountLoginSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="COCOServiceSoap" type="tns:COCOServiceSoap">
@@ -259,6 +311,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AccountRegistration">
+      <soap:operation soapAction="http://services.911consumidor.com/AccountRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountLogin">
+      <soap:operation soapAction="http://services.911consumidor.com/AccountLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="COCOServiceSoap12" type="tns:COCOServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -291,6 +361,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetTicketsByUser">
       <soap12:operation soapAction="http://services.911consumidor.com/GetTicketsByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountRegistration">
+      <soap12:operation soapAction="http://services.911consumidor.com/AccountRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountLogin">
+      <soap12:operation soapAction="http://services.911consumidor.com/AccountLogin" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

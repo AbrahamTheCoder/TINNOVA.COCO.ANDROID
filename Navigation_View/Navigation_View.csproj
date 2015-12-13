@@ -27,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -37,6 +38,7 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -105,6 +107,7 @@
     <Compile Include="Clases\MyBroadcastReceiver.cs" />
     <Compile Include="Clases\AccountCore.cs" />
     <Compile Include="RegisterActivity.cs" />
+    <Compile Include="IniciarSesionActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -183,9 +186,16 @@
     <AndroidResource Include="Resources\drawable\Seguimiento.png" />
     <AndroidResource Include="Resources\drawable\boletin.png" />
     <AndroidResource Include="Resources\drawable\marca911.png" />
-    <AndroidResource Include="Resources\drawable\OrangeBack.png" />
     <AndroidResource Include="Resources\layout\layout_main.axml" />
     <AndroidResource Include="Resources\layout\layout_register.axml" />
+    <AndroidResource Include="Resources\drawable\log911.png" />
+    <AndroidResource Include="Resources\drawable\Seguimiento48x48.png" />
+    <AndroidResource Include="Resources\drawable\Balanza48X48.png" />
+    <AndroidResource Include="Resources\drawable\Boletin48x48.png" />
+    <AndroidResource Include="Resources\drawable\Icono91148X48.png" />
+    <AndroidResource Include="Resources\drawable\Orange.png" />
+    <AndroidResource Include="Resources\layout\layout_iniciar_sesion.axml" />
+    <AndroidResource Include="Resources\drawable\Back48x48.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

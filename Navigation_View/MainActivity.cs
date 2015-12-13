@@ -15,6 +15,7 @@ using Android.Support.V7.Widget;
 using Android.Util;
 using Gcm.Client;
 using Android.Content.PM;
+using System.Runtime.InteropServices;
 
 namespace Navigation_View
 {
@@ -57,6 +58,7 @@ namespace Navigation_View
 			_supporttoolbar.SetTitle(Resource.String.boletin);
 			SetSupportActionBar(_supporttoolbar);
 			SupportActionBar.SetDisplayHomeAsUpEnabled(false);
+			_supporttoolbar.Visibility = ViewStates.Gone;
 
 //			_drawer = FindViewById<DrawerLayout>(Resource.Id.DrawerLayout);
 //
